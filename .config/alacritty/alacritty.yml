@@ -1,0 +1,16 @@
+# Font configuration
+font:
+  normal:
+    family: Nimbus Mono
+    style: Regular
+  bold:
+    family: Nimbus Mono
+    style: Bold
+  italic:
+    family: Nimbus Mono
+    style: Italic
+  bold_italic:
+    family: Nimbus Mono
+    style: Bold Italic
+
+  size: 24.0

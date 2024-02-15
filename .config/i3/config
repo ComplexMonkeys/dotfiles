@@ -220,3 +220,4 @@ bindsym $mod+Shift+minus border toggle
 
 bindsym $mod+o  exec --no-startup-id transformers_ocr recognize
 bindsym $mod+Shift+o  exec --no-startup-id transformers_ocr hold
+bindsym $mod+Control+o exec --no-startup-id transformers_ocr stop

@@ -2,14 +2,14 @@ if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
-# Utilizes youtube video id playlists to play certain files with mpv
+# utilize youtube video id playlists to play certain files with mpv
 function mpv-playlist() {
     local l="$1"
     local f=$(dirname "$l" | sed 's/\.tux//')
     xargs -a "$l" -I {} find "$f" -name {} | mpv --playlist=-
 }
 
-# makes mpv use .tux playlist files appropriately 
+# make mpv use .tux playlist files appropriately 
 function mpv() {
     if [[ "${1##*.}" == "tux" ]]; then
         mpv-playlist "$@"
@@ -17,6 +17,15 @@ function mpv() {
         command mpv "$@"
     fi
 }
+
+# improve upon the basic bash ls utility
+if ls --color -d . >/dev/null 2>&1; then
+  export COLUMNS
+  eval "$(dircolors)"
+  function ls {
+    command ls -F -h --color=always -v --author --time-style=long-iso -C "$@" | less -R -X -F
+  }
+fi
 
 export HISTSIZE=50
 export EDITOR="nvim"

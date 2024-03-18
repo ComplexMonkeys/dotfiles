@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # i3status configuration file.
 # see "man i3status" for documentation.
 
@@ -12,10 +13,21 @@ general {
 }
 order += "disk /"
 order += "disk /mnt/nvme0n1"
+=======
+general {
+        output_format = "i3bar"
+        colors = true
+        interval = 1
+}
+
+order += "disk /"
+order += "disk /mnt/nvme0n1/"
+>>>>>>> 3641fa1 (updates)
 order += "disk /mnt/nfs/nfsa"
 order += "disk /mnt/nfs/nfsb"
 order += "memory"
 order += "tztime local"
+<<<<<<< HEAD
 
 
 disk "/" {
@@ -37,8 +49,41 @@ memory {
         format = "+%available | -%used "
         threshold_degraded = "1G"
         format_degraded = "MEMORY < %available"
+=======
+order += "path_exists RECORDING"
+order += "path_exists VPN"
+
+path_exists VPN{
+        path = "/proc/sys/net/ipv4/conf/wg-mullvad"
+	format = "VPN CONNECTED"
+	format_down = ""
+}
+path_exists RECORDING{
+	path ="/tmp/isrec"
+	format = "RECORDING"
+	format_down = ""
+>>>>>>> 3641fa1 (updates)
 }
 
 tztime local {
         format = "%d.%m.%Y %H:%M:%S"
 }
+<<<<<<< HEAD
+=======
+memory {
+        format ="-%used +%free"
+}
+
+disk "/" {
+        format = "home:%avail"
+}
+disk "/mnt/nvme0n1/"{
+	format = "nvme:%avail"
+}
+disk "/mnt/nfs/nfsa"{
+	format = "media:%avail"
+}
+disk "/mnt/nfs/nfsb"{
+	format = "files:%avail"
+}
+>>>>>>> 3641fa1 (updates)

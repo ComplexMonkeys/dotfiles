@@ -1,0 +1,37 @@
+# Define general settings
+interval=1
+
+# Define blocks
+[VPN]
+command=/home/user/bash/small/is_vpn.sh
+interval=1
+color=#00FF00
+
+[RECORDING]
+command=/home/user/bash/small/is_recording.sh
+interval=1
+color=#FF0000
+
+[disk_home]
+command=df -h | awk '/\/$/{print "home:"$4}'
+interval=1
+
+[disk_nvme]
+command=df -h | awk '/\/mnt\/nvme0n1/{print "nvme:"$4}'
+interval=1
+
+[disk_nfsa]
+command=df -h | awk '/\/mnt\/nfs\/nfsa/{print "media:"$4}'
+interval=1
+
+[disk_nfsb]
+command=df -h | awk '/\/mnt\/nfs\/nfsb/{print "files:"$4}'
+interval=1
+
+[memory]
+command=free -h | awk '/Mem/{printf "-%sB +%sB", $3, $7}'
+interval=1
+
+[localtime]
+command=date '+%d.%m.%Y %H:%M:%S'
+interval=1

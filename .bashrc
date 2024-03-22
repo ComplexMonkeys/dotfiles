@@ -1,3 +1,4 @@
+# load bash aliases
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
@@ -27,10 +28,12 @@ if ls --color -d . >/dev/null 2>&1; then
   }
 fi
 
+# exports
 export HISTSIZE=50
 export EDITOR="nvim"
 export BC_ENV_ARGS="/home/user/.config/.bc"
 export PATH="$PATH:/home/user/.local/bin"
 export STEAM_COMPAT_DATA_PATH=/mnt/nvme0n1/SteamLibrary/steamapps/compatdata
-#PROMPT_COMMAND='echo -ne "\033]0;$(basename "$(pwd)")\007"'
+
+# bash prompt
 PS1='\[\e[38;5;45m\]\u\[\e[0m\][\[\e[38;5;45m\]\w\[\e[0m\]]> '
